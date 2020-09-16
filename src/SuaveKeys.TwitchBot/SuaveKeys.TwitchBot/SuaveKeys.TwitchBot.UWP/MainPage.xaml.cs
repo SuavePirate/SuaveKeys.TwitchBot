@@ -24,8 +24,6 @@ namespace SuaveKeys.TwitchBot.UWP
         {
             this.InitializeComponent();
             var container = new TinyIoCContainer();
-            container.Register<ISuaveKeysAuthSettings, SuaveKeysAuthSettings>();
-            container.Register<ITwitchAuthSettings, TwitchAuthSettings>();
             LoadApplication(new SuaveKeys.TwitchBot.App(container));
         }
     }

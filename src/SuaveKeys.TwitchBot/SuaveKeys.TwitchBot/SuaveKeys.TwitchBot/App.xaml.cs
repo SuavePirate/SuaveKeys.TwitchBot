@@ -15,6 +15,8 @@ namespace SuaveKeys.TwitchBot
         {
             InitializeComponent();
             Current = this;
+            container.Register<ISuaveKeysAuthSettings, SuaveKeysAuthSettings>();
+            container.Register<ITwitchAuthSettings, TwitchAuthSettings>();
             container.Register<ISuaveKeysService, SuaveKeysService>();
             container.Register<ITwitchService, TwitchService>();
             container.Register<ICustomAssistantApi>((i,d) => new CustomAssistantApi("https://assistant.voicify.com"));
