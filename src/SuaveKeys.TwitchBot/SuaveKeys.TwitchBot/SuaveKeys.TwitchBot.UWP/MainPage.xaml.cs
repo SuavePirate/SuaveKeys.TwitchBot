@@ -1,8 +1,11 @@
-﻿using System;
+﻿using SuaveKeys.TwitchBot.Services;
+using SuaveKeys.TwitchBot.UWP.Services;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TinyIoC;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -20,8 +23,10 @@ namespace SuaveKeys.TwitchBot.UWP
         public MainPage()
         {
             this.InitializeComponent();
-
-            LoadApplication(new SuaveKeys.TwitchBot.App());
+            var container = new TinyIoCContainer();
+            container.Register<ISuaveKeysAuthSettings, SuaveKeysAuthSettings>();
+            container.Register<ITwitchAuthSettings, TwitchAuthSettings>();
+            LoadApplication(new SuaveKeys.TwitchBot.App(container));
         }
     }
 }

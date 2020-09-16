@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SuaveKeys.TwitchBot.MainPage">
+
+    <StackLayout Padding="64" VerticalOptions="FillAndExpand">
+        <Button Text="Sign-in to your Suave Keys account" Command="{Binding SuaveKeysSignInCommand}" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Label Text="Linked successfully to Suave Keys" IsVisible="{Binding IsLinkedToSuaveKeys}" HorizontalOptions="Center"/>
+        <Button Text="Sign-in to your Twitch account" Command="{Binding TwitchSignInCommand}" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Label Text="Linked successfully to Twitch" IsVisible="{Binding IsLinkedToTwitch}" HorizontalOptions="Center"/>
+        <Button Text="Start Listening" Command="{Binding ToggleStartCommand}" HorizontalOptions="Center"/>
+        <Entry Text="{Binding Channel}" Placeholder="Account Channel (must be same as the bot)"/>
+        <Entry Text="{Binding Prefix}" Placeholder="Command prefix"/>
+    </StackLayout>
+
+</ContentPage>

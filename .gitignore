@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/src/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/Models/Voicifykeys.cs
+/src/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot.UWP/Services/SuaveKeysAuthSettings.cs
+/src/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot.UWP/Services/TwitchAuthSettings.cs

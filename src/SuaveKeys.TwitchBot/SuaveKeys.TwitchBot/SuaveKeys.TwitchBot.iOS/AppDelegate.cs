@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using TinyIoC;
 using UIKit;
 
 namespace SuaveKeys.TwitchBot.iOS
@@ -23,7 +24,9 @@ namespace SuaveKeys.TwitchBot.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            var container = new TinyIoCContainer();
+            LoadApplication(new App(container));
 
             return base.FinishedLaunching(app, options);
         }

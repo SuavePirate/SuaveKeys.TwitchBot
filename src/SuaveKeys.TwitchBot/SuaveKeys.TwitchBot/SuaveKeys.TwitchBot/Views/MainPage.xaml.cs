@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuaveKeys.TwitchBot.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,9 +11,11 @@ namespace SuaveKeys.TwitchBot
 {
     public partial class MainPage : ContentPage
     {
+        private readonly MainPageViewModel _vm = new MainPageViewModel();
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = _vm;
         }
     }
 }
