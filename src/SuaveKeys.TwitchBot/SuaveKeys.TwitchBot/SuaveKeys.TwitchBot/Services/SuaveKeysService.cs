@@ -90,20 +90,13 @@ namespace SuaveKeys.TwitchBot.Services
             try
             {
                 var tokenResult = await GetAccessTokenAsync();
-                var voicifyResponse = await _customAssistantApi.HandleRequestAsync(VoicifyKeys.ApplicationId, VoicifyKeys.ApplicationSecret, new CustomAssistantRequestBody(
-                          requestId: Guid.NewGuid().ToString(),
-                          context: new CustomAssistantRequestContext(_sessionId,
-                          noTracking: false,
-                          requestType: "IntentRequest",
-                          requestName: "PressKeyIntent",
-                          slots: new Dictionary<string, string> { { "key", command }, { "AccessToken", tokenResult?.Data } },
-                          originalInput: command,
-                          channel: "Twitch Bot",
-                          requiresLanguageUnderstanding: false,
-                          locale: "en-us"),
-                          new CustomAssistantDevice(Guid.NewGuid().ToString(), "Android Device"),
-                          new CustomAssistantUser(_sessionId, "Android User")
-                      ));
+                using (var client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Add("Authorization", $"Bearer {tokenResult.Data}");
+                    var response = await client.PostAsync($"{_baseUrl}/api/keyboard/KeyPress?key={command}", null);
+                    if (response?.IsSuccessStatusCode != true)
+                        return new InvalidResult<bool>("Error sending command to suave keys");
+                }
                 return new SuccessResult<bool>(true);
             }
             catch (Exception ex)
