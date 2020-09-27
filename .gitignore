@@ -351,3 +351,5 @@ MigrationBackup/
 /src/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/Models/Voicifykeys.cs
 /src/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot.UWP/Services/SuaveKeysAuthSettings.cs
 /src/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot.UWP/Services/TwitchAuthSettings.cs
+/src/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/Services/TwitchAuthSettings.cs
+/src/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/SuaveKeys.TwitchBot/Services/SuaveKeysAuthSettings.cs
